@@ -79,18 +79,16 @@ get.topic.matrix <- function(K, D, method){
     ctm.fit <- topicmodels::CTM(t(D),k=K)
     ctm.topics <- tidytext::tidy(ctm.fit, matrix = "beta")
     ctm.topics$term <- rep(1:p,each=K)
-    A.ctm <- ctm.topics %>%
-      pivot_wider(names_from = topic, values_from = beta) %>%
-      select(-term)
+    A.ctm <- tidyr::pivot_wider(ctm.topics, names_from = topic, values_from = beta)
+    A.ctm <- A.ctm[,-which(names(A.ctm) == "term")]
     return(as.matrix(A.ctm))
   }
   if(method == "lda"){
     lda.fit <- topicmodels::LDA(t(D),k=K)
     lda.topics <- tidytext::tidy(lda.fit, matrix = "beta")
     lda.topics$term <- rep(1:p,each=K)
-    A.lda <- lda.topics %>%
-      pivot_wider(names_from = topic, values_from = beta) %>%
-      select(-term)
+    A.lda <- tidyr::pivot_wider(lda.topics, names_from = topic, values_from = beta)
+    A.lda <- A.lda[,-which(names(A.lda) == "term")]
     return(as.matrix(A.lda))
   }
 }
