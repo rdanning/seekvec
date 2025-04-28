@@ -13,7 +13,7 @@ Imports:
     pheatmap
 Suggests:
     TopicScore,
-    fasttopics,
+    fastTopics,
     topicmodels,
     knitr,
     rmarkdown
