@@ -72,7 +72,7 @@ get.topic.matrix <- function(K, D, method){
     return(TopicScore::topic_score(K, prop.table(D,2))$A_hat)
   }
   if(method == "nmf"){
-    return(fasttopics::fit_topic_model(t(D),k=K)$F)
+    return(fastTopics::fit_topic_model(t(D),k=K)$F)
   }
   if(method == "ctm"){
     ctm.fit <- topicmodels::CTM(t(D),k=K)
