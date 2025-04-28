@@ -78,7 +78,7 @@ get.topic.matrix <- function(K, D, method){
   if(method == "ctm"){
     ctm.fit <- topicmodels::CTM(t(D),k=K)
     ctm.topics <- tidytext::tidy(ctm.fit, matrix = "beta")
-    ctm.topics$term <- rep(1:p,each=k)
+    ctm.topics$term <- rep(1:p,each=K)
     A.ctm <- ctm.topics %>%
       pivot_wider(names_from = topic, values_from = beta) %>%
       select(-term)
@@ -87,7 +87,7 @@ get.topic.matrix <- function(K, D, method){
   if(method == "lda"){
     lda.fit <- topicmodels::LDA(t(D),k=K)
     lda.topics <- tidytext::tidy(lda.fit, matrix = "beta")
-    lda.topics$term <- rep(1:p,each=k)
+    lda.topics$term <- rep(1:p,each=K)
     A.lda <- lda.topics %>%
       pivot_wider(names_from = topic, values_from = beta) %>%
       select(-term)
