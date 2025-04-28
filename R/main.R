@@ -68,6 +68,7 @@ check.inputs <- function(D, Ks, method, threshold){
 # function to run topic modeling with the given method
 get.topic.matrix <- function(K, D, method){
   print(paste0("Fitting a topic model with ",K," topics using ",toupper(method)))
+  p <- nrow(D)
   if(method == "ts"){
     return(TopicScore::topic_score(K, prop.table(D,2))$A_hat)
   }
