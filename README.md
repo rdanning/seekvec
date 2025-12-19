@@ -2,7 +2,7 @@
 
 ## Purpose of SEEK-VEC
 
-This package implements the method presented in the paper "SEEK-VEC: Robust Latent Structure Discovery via Ensembled Topic Modeling" ([bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.12.693799v1)).
+This package implements the method presented in the paper "SEEK-VEC: Robust Latent Structure Discovery via Ensemble Topic Modeling" ([bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.12.693799v1)).
 
 SEEK-VEC is an ensemble machine learning method for detecting latent structure in count data. SEEK-VEC can be used to prioritize the vocabulary, detect robust relationships among words, and perform model diagnostics on candidate topic models.
 
